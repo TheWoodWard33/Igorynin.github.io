@@ -1,0 +1,27 @@
+@startuml
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+
+class jira as "Сайт JIRA"
+
+class Order as "Задача"
+class num as "Номер задачи"
+class ruk as "Руководитель"
+class status as "Статус"
+class bd as "База данных"
+class zakaz as "Заказчик"
+
+jira <|-- bd 
+bd <|-- Order
+Order *-- num
+Order *-- ruk
+Order *-- status
+Order *-- zakaz
+ 
+hide members
+hide circle
+hide methods
+@enduml
