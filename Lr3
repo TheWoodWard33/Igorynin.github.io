@@ -1,0 +1,19 @@
+@startuml
+actor "Тестировщик" as tester
+boundary "JIRA" as jira
+entity "База данных" as data
+actor "Руководитель" as ruk
+ruk -> tester : Запрос по задаче
+tester -> jira : Проверка статуса задачи
+jira -> data : Обращение к данным
+data -> jira : Передача данных
+jira -> tester: Информация о статусе задачи
+tester -> jira : Определение информации по задаче
+jira -> data : Обращение к данным
+data -> jira : Передача данных
+jira -> tester: Информация о готовности задачи
+tester -> jira : Перевод статуса задачи в "Завершено"
+jira -> data : Запись в базу данных
+data -> jira : Подтверждение записи данных
+jira -> tester : Подтверждение завершения задачи
+@enduml
